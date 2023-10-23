@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Mvc;
 using server_side.Models;
 
@@ -24,6 +25,38 @@ public class HomeController : Controller
     }
     public IActionResult ContactUs()
     {
+        //Loops
+        for (var i = 0; i < 10; i++)
+        {
+            
+        }
+
+        while (true)
+        {
+            
+        }
+
+        do
+        {
+            
+        } while (true);
+
+        int n = 10;
+        int totalprice = default;
+        foreach (var item in n)
+        {
+            int sumitem = item.count + item.price;
+            totalprice += sumitem;
+        }
+
+
+
+
+
+        //show output with viewbag in ContactUs page
+
+        ViewBag.nfnc4 = namefnc4(10 , 20);
+
         return View();
 
         int a = 10;
@@ -46,7 +79,34 @@ public class HomeController : Controller
             // return ERR.Message;
         }
 
+       
+
     }
+
+    //Function in C#
+
+    void namefnc1(){
+        // Not input
+        int a = 1;
+        int b = 2;
+        string str = a+b.ToString(); 
+    }
+    void namefnc3(int a , int b){
+        // void but has input
+        String c = a + b.ToString() ;
+    }
+    string namefnc2(){
+        // Not input but has output
+        int a = 10;
+        int b = 20;
+        return (a + b).ToString() ;
+    }
+    string namefnc4(int a , int b){
+        //has input and has output
+        return (a + b).ToString();
+    }
+
+
     public IActionResult Privacy()
     {
         return View();
