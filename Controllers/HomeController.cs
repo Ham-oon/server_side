@@ -23,6 +23,10 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult Glass()
+    {
+        return View();
+    }
     public IActionResult ContactUs()
     {
         //Loops

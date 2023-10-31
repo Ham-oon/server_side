@@ -47,4 +47,17 @@ button.accept-policy {
   line-height: 60px;
 }
 
+.glass-container {
+  width: 400px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  margin: auto;
+  margin-top: 100px;
+  padding: 20px;
+}
 
+.glass-container h1 {
+  text-align: center;
+}
