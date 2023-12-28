@@ -23,92 +23,60 @@ public class HomeController : Controller
     {
         return View();
     }
-    public IActionResult Glass()
-    {
-        return View();
-    }
-    public IActionResult ContactUs()
-    {
-        //Loops
-        for (var i = 0; i < 10; i++)
+    public IActionResult ContactUs(Users user01)
         {
+            List<Users> listusers = new List<Users>();
+            Users prs1 = new Users();
+            prs1.Id = 1;
+            prs1.Name = "amir";
+            prs1.Family = "ghahremani";
+            prs1.Fathername = "ali";
+            prs1.Password = "123456";
+            prs1.Birthday = DateTime.Parse("1990/12/23");
+            prs1.Gender = true;//true: man False: woman
+            prs1.Active = true;
+            listusers.Add(prs1);
             
+            Users prs2 = new Users();
+            prs2.Id = 2;
+            prs2.Name = "mohammad";
+            prs2.Family = "rezaee";
+            prs2.Fathername = "reza";
+            prs2.Password = "123";
+            prs2.Birthday = DateTime.Parse("1991/12/23");
+            prs2.Gender = true;//true: man False: woman
+            prs2.Active = false;
+            prs2.Height = 1.90f;
+            listusers.Add(prs2);
+
+            Users prs3 = new Users();
+            prs3.Id = 3;
+            prs3.Name = "mehdi";
+            prs3.Family = "gholami";
+            prs3.Fathername = "karim";
+            prs3.Password = "12";
+            prs3.Birthday = DateTime.Parse("2000/12/23");
+            prs3.Gender = true;//true: man False: woman
+            prs3.Active = true;
+            prs3.Height = 1.89f;
+            listusers.Add(prs3);
+
+            Users prs4 = new Users();
+            prs3.Id = 4;
+            prs3.Name = "parsa";
+            prs3.Family = "mirzaei";
+            prs3.Fathername = "pasha";
+            prs3.Password = "3355";
+            prs3.Birthday = DateTime.Parse("2003/6/22");
+            prs3.Gender = true;//true: man False: woman
+            prs3.Active = true;
+            prs3.Height = 1.87f;
+            listusers.Add(prs4);
+
+            var query = listusers.Where(x => x.Gender == true && x.Active == true).ToList();//.Tolist() , .count() , ||
+                      //Link Lambda command^^^^^^^^^^^ 
+            return View(query);
         }
-
-        while (true)
-        {
-            
-        }
-
-        do
-        {
-            
-        } while (true);
-
-        int n = 10;
-        int totalprice = default;
-        foreach (var item in n)
-        {
-            int sumitem = item.count + item.price;
-            totalprice += sumitem;
-        }
-
-
-
-
-
-        //show output with viewbag in ContactUs page
-
-        ViewBag.nfnc4 = namefnc4(10 , 20);
-
-        return View();
-
-        int a = 10;
-        string b ="in the name of god";
-        float c = 123.45f;
-        decimal d = 182.12312434m;
-        int e = default;
-        bool aa = default;
-
-        // ارور هندلینگ با try catch
-
-        try{
-
-            string bb = "123465758abbb";
-            int ab = int.Parse(bb);
-
-        }
-        catch(Exception ERR){
-
-            // return ERR.Message;
-        }
-
-       
-
-    }
-
-    //Function in C#
-
-    void namefnc1(){
-        // Not input
-        int a = 1;
-        int b = 2;
-        string str = a+b.ToString(); 
-    }
-    void namefnc3(int a , int b){
-        // void but has input
-        String c = a + b.ToString() ;
-    }
-    string namefnc2(){
-        // Not input but has output
-        int a = 10;
-        int b = 20;
-        return (a + b).ToString() ;
-    }
-    string namefnc4(int a , int b){
-        //has input and has output
-        return (a + b).ToString();
-    }
 
 
     public IActionResult Privacy()
