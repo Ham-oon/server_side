@@ -7,18 +7,15 @@
 <h1>@ViewData["Title"]</h1>
 <p>a way for cantact Us 0917****678</p>
 <P>Thanks</P>
-<p>@ViewBag.nfnc4</p>
 
-<table>
+<table class="table table-responsive table-hover">
     <tr>
+
         <th>id</th>
         <th>name</th>
-        <th>family</th>
-        <th>fathername</th>
-        <th>password</th>
-        <th>gender</th>
-        <th>active</th>
-        <th>height</th>
+        <th>Description</th>
+        <th>Available</th>
+        <th>price</th>
                 
     </tr>
 @{
@@ -26,12 +23,10 @@
         <tr>
             <td>@item.Id</td>
             <td>@item.Name</td>
-            <td>@item.Family</td>
-            <td>@item.Fathername</td>
-            <td>@item.Password</td>
-            <td>@item.Gender</td>
-            <td>@item.Active</td>
-            <td>@item.Height</td>
+            <td>@item.Description</td>
+            <td>@item.Available</td>
+            <td>@item.Price</td>
+            
         </tr>
     }
 }

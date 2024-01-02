@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 using server_side.Models;
 
 namespace server_side.Controllers;
@@ -23,61 +24,53 @@ public class HomeController : Controller
     {
         return View();
     }
-    public IActionResult ContactUs(Users user01)
+
+    
+    public IActionResult ContactUs(Product prd01)
         {
-            List<Users> listusers = new List<Users>();
-            Users prs1 = new Users();
-            prs1.Id = 1;
-            prs1.Name = "amir";
-            prs1.Family = "ghahremani";
-            prs1.Fathername = "ali";
-            prs1.Password = "123456";
-            prs1.Birthday = DateTime.Parse("1990/12/23");
-            prs1.Gender = true;//true: man False: woman
-            prs1.Active = true;
-            listusers.Add(prs1);
             
-            Users prs2 = new Users();
-            prs2.Id = 2;
-            prs2.Name = "mohammad";
-            prs2.Family = "rezaee";
-            prs2.Fathername = "reza";
-            prs2.Password = "123";
-            prs2.Birthday = DateTime.Parse("1991/12/23");
-            prs2.Gender = true;//true: man False: woman
-            prs2.Active = false;
-            prs2.Height = 1.90f;
-            listusers.Add(prs2);
+            List<Product> listprd = new List<Product>();
+            Product prd1 = new Product();
+            prd1.Id = 1;
+            prd1.Name = "tombak - shirani Isfahan";
+            prd1.Description = "3 Sign";
+            prd1.Available = true;
+            prd1.Price = 330;
+            listprd.Add(prd1);
 
-            Users prs3 = new Users();
-            prs3.Id = 3;
-            prs3.Name = "mehdi";
-            prs3.Family = "gholami";
-            prs3.Fathername = "karim";
-            prs3.Password = "12";
-            prs3.Birthday = DateTime.Parse("2000/12/23");
-            prs3.Gender = true;//true: man False: woman
-            prs3.Active = true;
-            prs3.Height = 1.89f;
-            listusers.Add(prs3);
+             Product prd2 = new Product();
+            prd2.Id = 2;
+            prd2.Name = "santoor";
+            prd2.Description = "2 Sign";
+            prd2.Available = true;
+            prd2.Price = 560;
+            listprd.Add(prd2);
 
-            Users prs4 = new Users();
-            prs3.Id = 4;
-            prs3.Name = "parsa";
-            prs3.Family = "mirzaei";
-            prs3.Fathername = "pasha";
-            prs3.Password = "3355";
-            prs3.Birthday = DateTime.Parse("2003/6/22");
-            prs3.Gender = true;//true: man False: woman
-            prs3.Active = true;
-            prs3.Height = 1.87f;
-            listusers.Add(prs4);
+             Product prd3 = new Product();
+            prd3.Id = 3;
+            prd3.Name = "daf - ahmadi";
+            prd3.Description = "1 Sign";
+            prd3.Available = true;
+            prd3.Price = 280;
+            listprd.Add(prd3);
 
-            var query = listusers.Where(x => x.Gender == true && x.Active == true).ToList();//.Tolist() , .count() , ||
+             Product prd4 = new Product();
+            prd4.Id = 4;
+            prd4.Name = "kahken";
+            prd4.Description = "yamaha";
+            prd4.Available = true;
+            prd4.Price = 490.5f;
+            listprd.Add(prd4);
+            
+            
+
+            var query = listprd.ToList();//.Tolist() , .count() , ||
                       //Link Lambda command^^^^^^^^^^^ 
+            //var query = listprd.Where(x => x.Available ==true && x.Price >= 400).ToList();
             return View(query);
-        }
 
+        }
+    
 
     public IActionResult Privacy()
     {

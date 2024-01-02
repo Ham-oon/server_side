@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\server_side\\server_side.csproj": {}
+    "c:\\Users\\USER\\Documents\\GitHub\\server_side\\server_side.csproj": {}
   },
   "projects": {
-    "d:\\server_side\\server_side.csproj": {
+    "c:\\Users\\USER\\Documents\\GitHub\\server_side\\server_side.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\server_side\\server_side.csproj",
+        "projectUniqueName": "c:\\Users\\USER\\Documents\\GitHub\\server_side\\server_side.csproj",
         "projectName": "server_side",
-        "projectPath": "d:\\server_side\\server_side.csproj",
+        "projectPath": "c:\\Users\\USER\\Documents\\GitHub\\server_side\\server_side.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "d:\\server_side\\obj\\",
+        "outputPath": "c:\\Users\\USER\\Documents\\GitHub\\server_side\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
