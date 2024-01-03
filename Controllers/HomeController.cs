@@ -20,6 +20,47 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Users()
+    {
+
+         List<Users> listusers = new List<Users>();
+            Users prs1 = new Users();
+            prs1.Id = 1;
+            prs1.Name = "amir";
+            prs1.Family = "ghahremani";
+            prs1.Fathername = "ali";
+            prs1.Password = "123456";
+            prs1.Birthday = DateTime.Parse("1990/12/23");
+            prs1.Gender = true;//true: man False: woman
+            prs1.Active = true;
+            listusers.Add(prs1);
+
+            Users prs2 = new Users();
+            prs2.Id = 2;
+            prs2.Name = "mohammad";
+            prs2.Family = "rezaee";
+            prs2.Fathername = "reza";
+            prs2.Password = "123";
+            prs2.Birthday = DateTime.Parse("1991/12/23");
+            prs2.Gender = true;//true: man False: woman
+            prs2.Active = false;
+            listusers.Add(prs2);
+
+            Users prs3 = new Users();
+            prs3.Id = 3;
+            prs3.Name = "ali";
+            prs3.Family = "kamali";
+            prs3.Fathername = "omid";
+            prs3.Password = "456";
+            prs3.Birthday = DateTime.Parse("2002/11/10");
+            prs3.Gender = true;//true: man False: woman
+            prs3.Active = true;
+            listusers.Add(prs3);
+
+            var query = listusers.ToList();
+        return View(query);
+    }
+
     public IActionResult About()
     {
         return View();
