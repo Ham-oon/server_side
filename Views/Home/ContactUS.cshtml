@@ -10,28 +10,3 @@
 <p>a way for cantact Us 0917****678</p>
 <P>Thanks</P>
 
-<p>count products : @ViewBag.CP</p>
-
-<table class="table table-responsive table-hover">
-    <tr>
-
-        <th>id</th>
-        <th>name</th>
-        <th>Description</th>
-        <th>Available</th>
-        <th>price</th>
-                
-    </tr>
-@{
-    foreach(var item in Model){
-        <tr>
-            <td>@item.Id</td>
-            <td>@item.Name</td>
-            <td>@item.Description</td>
-            <td>@item.Available</td>
-            <td>@item.Price</td>
-            
-        </tr>
-    }
-}
-</table>

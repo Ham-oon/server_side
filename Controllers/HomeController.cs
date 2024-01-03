@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Mvc;
@@ -25,10 +26,7 @@ public class HomeController : Controller
 
     public IActionResult Users()
     {
-
-         List<Users> listusers = new List<Users>();
             Users prs1 = new Users();
-            prs1.Id = 1;
             prs1.Name = "amir";
             prs1.Family = "ghahremani";
             prs1.Fathername = "ali";
@@ -36,10 +34,10 @@ public class HomeController : Controller
             prs1.Birthday = DateTime.Parse("1990/12/23");
             prs1.Gender = true;//true: man False: woman
             prs1.Active = true;
-            listusers.Add(prs1);
+            DB.Userss.Add(prs1);
+            DB.SaveChanges();
 
             Users prs2 = new Users();
-            prs2.Id = 2;
             prs2.Name = "mohammad";
             prs2.Family = "rezaee";
             prs2.Fathername = "reza";
@@ -47,10 +45,10 @@ public class HomeController : Controller
             prs2.Birthday = DateTime.Parse("1991/12/23");
             prs2.Gender = true;//true: man False: woman
             prs2.Active = false;
-            listusers.Add(prs2);
+            DB.Userss.Add(prs2);
+            DB.SaveChanges();
 
             Users prs3 = new Users();
-            prs3.Id = 3;
             prs3.Name = "ali";
             prs3.Family = "kamali";
             prs3.Fathername = "omid";
@@ -58,9 +56,10 @@ public class HomeController : Controller
             prs3.Birthday = DateTime.Parse("2002/11/10");
             prs3.Gender = true;//true: man False: woman
             prs3.Active = true;
-            listusers.Add(prs3);
+            DB.Userss.Add(prs3);
+            DB.SaveChanges();
 
-            var query = listusers.ToList();
+            var query = DB.Userss.ToList();
         return View(query);
     }
 
@@ -70,10 +69,27 @@ public class HomeController : Controller
     }
 
     
-    public IActionResult ContactUs(Product prd01)
+    public IActionResult ContactUs()
         {
-            
-            //INSERT
+            return View();
+        }
+    
+
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    public IActionResult SavePro(Product prd1)
+    {
+        DB.productss.Add(prd1);
+        DB.SaveChanges();
+        return RedirectToAction("index");
+    }
+
+    public IActionResult Pro(Product prd01)
+    {
+        //INSERT
             Product prd1 = new Product();
             prd1.Name = "tombak - shirani Isfahan";
             prd1.Description = "3 Sign";
@@ -106,25 +122,17 @@ public class HomeController : Controller
             DB.productss.Add(prd4);
             DB.SaveChanges();
             //INSERT
-            
-            
+
             //SELECT
-            var query = DB.productss.ToList();//.Tolist() , .count() , ||
-                      //Link Lambda command^^^^^^^^^^^ 
+            var query = DB.productss.ToList().OrderByDescending(x => x.Id);//.Tolist() , .count() , ||
+                                           //Link Lambda command^^^^^^^^^^^ 
             //var query = DB.productss.Where(x => x.Available ==true && x.Price >= 400).ToList();
             var queryCP = DB.productss.ToList().Count;
             //SELECT
 
-            ViewBag.CP = queryCP;
+        ViewBag.CP = queryCP;
 
-            return View(query);
-
-        }
-    
-
-    public IActionResult Privacy()
-    {
-        return View();
+        return View(query);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

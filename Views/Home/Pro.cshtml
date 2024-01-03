@@ -1,0 +1,47 @@
+
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Pro";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-asp-controller="HOME" asp-action="Savepro" method="POST">
+    <label>Name</label>
+    <input type="text" name="Name">
+    <Label>Description</Label>
+    <input type="text" name="Description">
+    <label>Available</label>
+    <input type="text" name="Available">
+    <label>price</label>
+    <input type="text" name="Price">
+
+    <input type="submit" value="ذخیره">
+
+</form>
+
+<p>count products : @ViewBag.CP</p>
+
+<table class="table table-responsive table-hover">
+    <tr>
+
+        <th>id</th>
+        <th>name</th>
+        <th>Description</th>
+        <th>Available</th>
+        <th>price</th>
+                
+    </tr>
+@{
+    foreach(var item in Model){
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Available</td>
+            <td>@item.Price</td>
+            
+        </tr>
+    }
+}
+</table>
