@@ -8,7 +8,7 @@ namespace server_side.Models
         [Key]
         public int Id {get;set;}
 
-        [Required]
+        [Required]//Attribute
         public string Name { get; set; }
 
         [StringLength (100)]

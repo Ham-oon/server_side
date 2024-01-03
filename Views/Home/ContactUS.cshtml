@@ -1,3 +1,5 @@
+@model IEnumerable<Product>
+
 @{
     ViewData["Title"] = "ContactUS";
 }
@@ -7,6 +9,8 @@
 <h1>@ViewData["Title"]</h1>
 <p>a way for cantact Us 0917****678</p>
 <P>Thanks</P>
+
+<p>count products : @ViewBag.CP</p>
 
 <table class="table table-responsive table-hover">
     <tr>
