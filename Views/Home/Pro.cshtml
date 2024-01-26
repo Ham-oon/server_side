@@ -6,7 +6,7 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<form asp-asp-controller="HOME" asp-action="Savepro" method="POST">
+<form asp-asp-controller="HOME" asp-action="Savepro" method="POST" >
     <label>Name</label>
     <input type="text" name="Name">
     <Label>Description</Label>
@@ -14,7 +14,9 @@
     <label>Available</label>
     <input type="text" name="Available">
     <label>price</label>
-    <input type="text" name="Price">
+    <input type="number" name="Price">
+    <label>Picture</label>
+    <input type="file" name="Img">
 
     <input type="submit" value="ذخیره">
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using server_side.Models;
 
@@ -11,9 +12,11 @@ using server_side.Models;
 namespace server_side.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20240107210147_Hmig2")]
+    partial class Hmig2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,28 +24,6 @@ namespace server_side.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("server_side.Models.Basket", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Baskett");
-                });
 
             modelBuilder.Entity("server_side.Models.Product", b =>
                 {
@@ -115,18 +96,6 @@ namespace server_side.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Userss");
-                });
-
-            modelBuilder.Entity("server_side.Models.Basket", b =>
-                {
-                    b.HasOne("server_side.Models.Product", null)
-                        .WithMany("Baskets")
-                        .HasForeignKey("ProductId");
-                });
-
-            modelBuilder.Entity("server_side.Models.Product", b =>
-                {
-                    b.Navigation("Baskets");
                 });
 #pragma warning restore 612, 618
         }

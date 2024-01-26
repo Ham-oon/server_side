@@ -10,6 +10,8 @@ namespace server_side.Models
         public DbSet<Product> productss { get; set; }
 
         public DbSet<Users> Userss  { get; set; }
+
+        public DbSet<Basket> Baskett { get; set; }
         
     }
 }

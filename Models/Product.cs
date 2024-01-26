@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace server_side.Models
 {
@@ -9,10 +10,10 @@ namespace server_side.Models
         public int Id {get;set;}
 
         [Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [StringLength (100)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [Required]
         public bool? Available { get; set; }
@@ -22,6 +23,13 @@ namespace server_side.Models
         [Required]
         public float? Price { get; set; }
 
+        [Required]
+        public string? Imgpath { get; set; }
+
+        [NotMapped]
+        public IFormFile? Img { get; set; }
+
+        public ICollection<Basket> Baskets { get; set; }
     
     }
 }

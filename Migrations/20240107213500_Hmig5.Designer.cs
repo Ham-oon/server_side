@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using server_side.Models;
 
@@ -11,9 +12,11 @@ using server_side.Models;
 namespace server_side.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20240107213500_Hmig5")]
+    partial class Hmig5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,12 +37,7 @@ namespace server_side.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("Baskett");
                 });
@@ -115,18 +113,6 @@ namespace server_side.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Userss");
-                });
-
-            modelBuilder.Entity("server_side.Models.Basket", b =>
-                {
-                    b.HasOne("server_side.Models.Product", null)
-                        .WithMany("Baskets")
-                        .HasForeignKey("ProductId");
-                });
-
-            modelBuilder.Entity("server_side.Models.Product", b =>
-                {
-                    b.Navigation("Baskets");
                 });
 #pragma warning restore 612, 618
         }

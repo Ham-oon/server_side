@@ -9,20 +9,20 @@ namespace server_side.Models
         public int Id {get;set;}
 
         [Required]//Attribute
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [StringLength (100)]
         [Required]
-        public string Family { get; set; }
+        public string? Family { get; set; }
 
 
         [StringLength (100)]
-        public string Fathername { get; set; }
+        public string? Fathername { get; set; }
 
 
         [StringLength (100)]
         [Required]
-        public string Password { get; set; }
+        public string? Password { get; set; }
 
         public DateTime?  Birthday { get; set; }
         public bool? Gender { get; set; }
